@@ -1,6 +1,6 @@
 module github.com/benjlevesque/go-bw
 
-go 1.26.10
+go 1.26.3
 
 require github.com/pquerna/otp v1.5.0
 
