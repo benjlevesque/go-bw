@@ -18,7 +18,6 @@ var (
 	versionFlag = false
 	version     = "dev"
 	commit      = "none"
-	date        = "unknown"
 )
 
 func main() {
@@ -26,7 +25,7 @@ func main() {
 	flag.Parse()
 
 	if versionFlag {
-		fmt.Printf("Version %s, commit %s, built at %s\n", version, commit, date)
+		fmt.Printf("Version %s, commit %s\n", version, commit)
 		return
 	}
 
