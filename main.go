@@ -90,7 +90,20 @@ var (
 	copyLogin    = false
 )
 
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
+
+var versionFlag = flag.Bool("version", false, "Display version")
+
 func main() {
+	if *versionFlag {
+		fmt.Printf("Version %s, commit %s, built at %s\n", version, commit, date)
+		return
+	}
+
 	flag.BoolVar(&copyTOTP, "totp", false, "Copy TOTP to clipboard")
 	flag.BoolVar(&copyPassword, "password", false, "Copy password to clipboard")
 	flag.BoolVar(&copyLogin, "login", false, "Copy login to clipboard")
