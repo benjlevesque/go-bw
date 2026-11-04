@@ -91,23 +91,23 @@ var (
 )
 
 var (
-	version = "dev"
-	commit  = "none"
-	date    = "unknown"
+	versionFlag = false
+	version     = "dev"
+	commit      = "none"
+	date        = "unknown"
 )
 
-var versionFlag = flag.Bool("version", false, "Display version")
-
 func main() {
-	if *versionFlag {
-		fmt.Printf("Version %s, commit %s, built at %s\n", version, commit, date)
-		return
-	}
-
+	flag.BoolVar(&versionFlag, "version", false, "Display version")
 	flag.BoolVar(&copyTOTP, "totp", false, "Copy TOTP to clipboard")
 	flag.BoolVar(&copyPassword, "password", false, "Copy password to clipboard")
 	flag.BoolVar(&copyLogin, "login", false, "Copy login to clipboard")
 	flag.Parse()
+
+	if versionFlag {
+		fmt.Printf("Version %s, commit %s, built at %s\n", version, commit, date)
+		return
+	}
 
 	if (copyTOTP && copyPassword) || (copyTOTP && copyLogin) || (copyPassword && copyLogin) {
 		log.Fatal("Only one of --totp, --password, or --login can be specified at a time")
