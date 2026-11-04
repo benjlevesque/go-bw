@@ -157,7 +157,7 @@ func main() {
 {{ "Name:" | faint }}	{{ .Name }}
 {{if .Login}}{{ "Login:" | faint }}	{{ .Login }}
 {{end}}{{if .URIs}}{{ "URIs:" | faint }}	{{ range .URIs }}{{ . }} {{ end }}
-{{end}}{{if .TOTPSecret}}{{ "TOTP:" | faint }}	{{ .TOTPSecret }}
+{{end}}{{if .TOTPSecret}}{{ "TOTP:" | faint }}	{{ .TOTP }}
 {{end}}{{if .Password}}{{ "Password:" | faint }}	{{ .Password }}{{end}}`}
 
 	templates.Selected = templates.Details
